@@ -28,13 +28,15 @@ public class MakingChange {
                 // Represents the spot above.
                 long upSpot = i - 1;
 
+                long total = 0;
+
                 // Check if the left spot is in bounds. If it isn't you add 0 from that part.
                 if (leftSpot < 0) {
                     leftSpot = 0;
                 }
                 else {
                     // Otherwise, you add the value in that spot.
-                    leftSpot = table[i][(int) leftSpot];
+                    total += table[i][(int) leftSpot];
                 }
 
                 // Same as what you did for left, just looking up instead.
@@ -42,11 +44,11 @@ public class MakingChange {
                     upSpot = 0;
                 }
                 else {
-                    upSpot = table[(int) upSpot][j];
+                    total += table[(int) upSpot][j];
                 }
 
                 // Fill in the table with the summed values.
-                table[i][j] = leftSpot + upSpot;
+                table[i][j] = total;
             }
         }
 
